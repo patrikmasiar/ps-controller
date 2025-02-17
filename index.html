@@ -12,13 +12,14 @@
             height: calc(100%);
         }
 
-        #car {
-            width: 50px;
-            height: 50px;
-            background: dodgerblue;
+        #plane {
+            width: 150px;
+            height: 150px;
             position: absolute;
             left: 50%;
             top: 50%;
+            background-size: contain;
+            background-image: url('https://c.ekstatic.net/ecl/aircraft-exterior/boeing-777/view-from-top-on-emirates-boeing-777-w1098x1098.png');
         }
 
         .status-wrapper {
@@ -46,7 +47,7 @@
 </head>
 <body>
 <div id="playground">
-    <div id="car"></div>
+    <div id="plane"></div>
     <div class="status-wrapper">
         <div id="status-indicator"></div>
         <div id="status-label">
