@@ -20,6 +20,22 @@ const BUTTONS = {
   RIGHT: 15,
 }
 
+
+const KEYS = {
+  ArrowUp: BUTTONS.TOP,
+  ArrowDown: BUTTONS.BOTTOM,
+  ArrowLeft: BUTTONS.LEFT,
+  ArrowRight: BUTTONS.RIGHT
+};
+
+window.addEventListener("keydown", (e) => {
+  if (KEYS[e.key] !== undefined) {
+    moveElement(KEYS[e.key]);
+  }
+});
+
+const MOVEMENT_SPEED = 10;
+
 function update() {
   const availableGamepadIndex = navigator.getGamepads().findIndex(gamepad => gamepad !== null)
   const gamepad = navigator.getGamepads()[availableGamepadIndex]
@@ -30,22 +46,33 @@ function update() {
   requestAnimationFrame(update);
 }
 
+
 function moveElement(index) {
-  var movingElement = document.getElementById('car');
-  var currentPosition = movingElement.getBoundingClientRect();
+  let left = plane.offsetLeft;
+  let top = plane.offsetTop;
+  let rotation = 0;
 
   switch (index) {
     case BUTTONS.TOP:
-      movingElement.style.top = currentPosition.top - 50 + 'px';
+      top -= MOVEMENT_SPEED;
+      rotation = 0;
       break;
     case BUTTONS.BOTTOM:
-      movingElement.style.top = currentPosition.top + 10 + 'px';
+      top += MOVEMENT_SPEED;
+      rotation = 180;
       break;
     case BUTTONS.LEFT:
-      movingElement.style.left = currentPosition.left - 50 + 'px';
+      left -= MOVEMENT_SPEED;
+      rotation = -90;
       break;
     case BUTTONS.RIGHT:
-      movingElement.style.left = currentPosition.left + 10 + 'px';
+      left += MOVEMENT_SPEED;
+      rotation = 90;
       break;
   }
+
+  plane.style.left = left + 'px';
+  plane.style.top = top + 'px';
+
+  plane.style.transform = `rotate(${rotation}deg)`;
 }
