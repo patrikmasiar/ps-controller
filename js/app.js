@@ -6,7 +6,7 @@ canvas.height = window.innerHeight;
 
 const MOVEMENT_SPEED = 5;
 const planeImage = new Image();
-planeImage.src = "https://c.ekstatic.net/ecl/aircraft-exterior/boeing-777/view-from-top-on-emirates-boeing-777-w1098x1098.png"; // Use your actual plane image
+planeImage.src = "https://c.ekstatic.net/ecl/aircraft-exterior/boeing-777/view-from-top-on-emirates-boeing-777-w1098x1098.png";
 
 const BUTTONS = {
   TOP: 12,
