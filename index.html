@@ -1,44 +1,37 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>PS controller</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈️ PS Controller - Plane</title>
     <style>
         body {
+            margin: 0;
+            overflow: hidden;
             font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
         }
 
-        #playground {
-            position: relative;
-            width: 100%;
-            height: calc(100%);
-        }
-
-        #plane {
-            width: 150px;
-            height: 150px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            background-size: contain;
-            background-image: url('https://c.ekstatic.net/ecl/aircraft-exterior/boeing-777/view-from-top-on-emirates-boeing-777-w1098x1098.png');
+        canvas {
+            display: block;
         }
 
         .status-wrapper {
             position: absolute;
-            left: 0;
-            top: 0;
+            left: 10px;
+            top: 10px;
             border-radius: 12px;
             background: black;
             color: white;
-            font-size: 12px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 8px;
+            padding: 10px;
         }
 
         #status-indicator {
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: red;
             margin-right: 10px;
@@ -46,15 +39,11 @@
     </style>
 </head>
 <body>
-<div id="playground">
-    <div id="plane"></div>
-    <div class="status-wrapper">
-        <div id="status-indicator"></div>
-        <div id="status-label">
-            Not connected
-        </div>
-    </div>
+<canvas id="gameCanvas"></canvas>
+<div class="status-wrapper">
+    <div id="status-indicator"></div>
+    <div id="status-label">Not Connected</div>
 </div>
-</body>
 <script src="js/app.js"></script>
+</body>
 </html>
